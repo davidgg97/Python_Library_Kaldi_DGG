@@ -22,4 +22,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
   Lib_RAH_DGG.PlotMatViridis(Normal_Matriz_Confusion_C, "Consonantes")
   ```
   Se obtiene como resultado la siguiente figura:
+  
+  ![alt text](Imagenes_Ejemplo_Resultados_Librería/Matriz_Viridis_Consonantes_salidatxt.png)
+
 
