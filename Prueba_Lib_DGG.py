@@ -37,45 +37,45 @@ ld.PorcentajeAciertos(texto_kaldi)
 ##### 2. MATRICES DE CONFUSION #####
 # 2.1 VOCALES
 #Calculo de matriz de confusion Vocales. Funcion: ConfusionMatrixVoc(matriz)
-Matriz_Confusion_V = pd.DataFrame.from_dict(ld.ConfusionMatrixVoc(texto_kaldi))
+Matriz_Confusion_V = ld.ConfusionMatrixVoc(texto_kaldi)
 #Calculo de matriz de confusion Normalizada Vocales. Funcion: NormalConfusionMatrixVoc
-Normal_Matriz_Confusion_V = pd.DataFrame.from_dict(ld.NormalConfusionMatrixVoc(texto_kaldi))
+Normal_Matriz_Confusion_V = ld.NormalConfusionMatrixVoc(texto_kaldi)
 
 # 2.2 CONSONANTES
 #Calculo de matriz de confusion Consonantes. Funcion: ConfusionMatrixCons(matriz)
-Matriz_Confusion_C = pd.DataFrame.from_dict(ld.ConfusionMatrixCons(texto_kaldi))
+Matriz_Confusion_C = ld.ConfusionMatrixCons(texto_kaldi)
 #Calculo de matriz de confusion Consonantes. Funcion: NormalConfusionMatrixCons
-Normal_Matriz_Confusion_C = pd.DataFrame.from_dict(ld.NormalConfusionMatrixCons(texto_kaldi))
+Normal_Matriz_Confusion_C = ld.NormalConfusionMatrixCons(texto_kaldi)
 
 # 2.2.1 SONORIDAD: Sordas o Sonoras
-Sonoridad_Sonora = pd.DataFrame.from_dict(ld.CSonora(texto_kaldi))
-Sonoridad_Sorda = pd.DataFrame.from_dict(ld.CSorda(texto_kaldi))
+Sonoridad_Sonora = ld.CSonora(texto_kaldi)
+Sonoridad_Sorda = ld.CSorda(texto_kaldi)
 #Normalizadas
-Normal_Sonoridad_Sonora = pd.DataFrame.from_dict(ld.NormalizeCSonora(texto_kaldi))
-Normal_Sonoridad_Sorda = pd.DataFrame.from_dict(ld.NormalizeCSorda(texto_kaldi))
+Normal_Sonoridad_Sonora = ld.NormalizeCSonora(texto_kaldi)
+Normal_Sonoridad_Sorda = ld.NormalizeCSorda(texto_kaldi)
 
 # 2.2.2 LUGAR DE ARTICULACION: Frontal, Coronal, Back
-Lugar_Frontal = pd.DataFrame.from_dict(ld.CFrontal(texto_kaldi))
-Lugar_Coronal = pd.DataFrame.from_dict(ld.CCoronal(texto_kaldi))
-Lugar_Back = pd.DataFrame.from_dict(ld.CBack(texto_kaldi))
+Lugar_Frontal = ld.CFrontal(texto_kaldi)
+Lugar_Coronal = ld.CCoronal(texto_kaldi)
+Lugar_Back = ld.CBack(texto_kaldi)
 #Normalizadas
-Normal_Lugar_Frontal = pd.DataFrame.from_dict(ld.NormalizeCFrontal(texto_kaldi))
-Normal_Lugar_Coronal = pd.DataFrame.from_dict(ld.NormalizeCCoronal(texto_kaldi))
-Normal_Lugar_Back = pd.DataFrame.from_dict(ld.NormalizeCBack(texto_kaldi))
+Normal_Lugar_Frontal = ld.NormalizeCFrontal(texto_kaldi)
+Normal_Lugar_Coronal = ld.NormalizeCCoronal(texto_kaldi)
+Normal_Lugar_Back = ld.NormalizeCBack(texto_kaldi)
 
 # 2.2.3 MODO DE ARTICULACION: Oclusiva, Africada, Fricativa, Nasal, Aproximantes
-Modo_Oclusiva = pd.DataFrame.from_dict(ld.COclusiva(texto_kaldi))
-Modo_Africada = pd.DataFrame.from_dict(ld.CAfricada(texto_kaldi))
-Modo_Fricativa = pd.DataFrame.from_dict(ld.CFricativa(texto_kaldi))
-Modo_Nasal = pd.DataFrame.from_dict(ld.CNasal(texto_kaldi))
-Modo_Aproximante = pd.DataFrame.from_dict(ld.CAproximante(texto_kaldi))
+Modo_Oclusiva = ld.COclusiva(texto_kaldi)
+Modo_Africada = ld.CAfricada(texto_kaldi)
+Modo_Fricativa = ld.CFricativa(texto_kaldi)
+Modo_Nasal = ld.CNasal(texto_kaldi)
+Modo_Aproximante = ld.CAproximante(texto_kaldi)
 
 #Normalizadas
-Normal_Modo_Oclusiva = pd.DataFrame.from_dict(ld.NormalizeCOclusiva(texto_kaldi))
-Normal_Modo_Africada = pd.DataFrame.from_dict(ld.NormalizeCAfricada(texto_kaldi))
-Normal_Modo_Fricativa = pd.DataFrame.from_dict(ld.NormalizeCFricativa(texto_kaldi))
-Normal_Modo_Nasal = pd.DataFrame.from_dict(ld.NormalizeCNasal(texto_kaldi))
-Normal_Modo_Aproximante = pd.DataFrame.from_dict(ld.NormalizeCAproximante(texto_kaldi))
+Normal_Modo_Oclusiva = ld.NormalizeCOclusiva(texto_kaldi)
+Normal_Modo_Africada = ld.NormalizeCAfricada(texto_kaldi)
+Normal_Modo_Fricativa = ld.NormalizeCFricativa(texto_kaldi)
+Normal_Modo_Nasal = ld.NormalizeCNasal(texto_kaldi)
+Normal_Modo_Aproximante = ld.NormalizeCAproximante(texto_kaldi)
 
 
 
