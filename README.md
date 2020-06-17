@@ -43,7 +43,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
 
   Puedes descargar esta librería desde el siguiente enlace:
   
-  (Lib_RAH_DGG.py)
+  (https://github.com/davidgg97/Python_Statistics_Library_for_Kaldi_RAH_DGG/blob/master/Lib_RAH_DGG.py)
   
 - Uso de las diferentes funciones
 
@@ -138,7 +138,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
    FuncionesEstadisticas(matriz_confusion)
   ```
 
-- Función para guardar los resultados de un dataframe en un archivo “.xlsx”:
+  - Función para guardar los resultados de un dataframe en un archivo “.xlsx”:
 
   ```
   dfToExcel(Normal_Matriz_Confusion,"Nombre_archivo.xlsx")
