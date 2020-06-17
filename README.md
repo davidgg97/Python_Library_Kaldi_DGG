@@ -141,7 +141,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
   - Función para guardar los resultados de un dataframe en un archivo “.xlsx”:
 
   ```
-  dfToExcel(Normal_Matriz_Confusion,"Nombre_archivo.xlsx")
+  dfToExcel(Matriz_Confusion,"Nombre_archivo.xlsx")
   ```
 
 ***3.	Información***
