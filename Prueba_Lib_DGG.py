@@ -244,6 +244,6 @@ Parametro_D_Consonantes = ld.EstatParamD(Matriz_Confusion_C)
 
 ##### 7. GUARDAR LOS RESULTADOS DE DATAFRAME #####
 
-#Se guarda el dataframe de las Consonantes en formato .xlsx
+#Se guarda el dataframe de las Consonantes en formato .xlsx. Funcion: dfToExcel
 ld.dfToExcel(Normal_Matriz_Confusion_C, "Consonantes_Normalizadas.xlsx")
 
