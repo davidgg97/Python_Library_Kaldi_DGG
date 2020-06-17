@@ -45,7 +45,7 @@ def PorcentajeAciertos (df):
     four_syl = round((len(df[df.NSyllables == 4])/ len(df))*100, 2) 
     
     
-    #Calcula el % de total, crea un array en el que solo se queda con los elementos que df.prueba == 1 y lo divide por el total, redondeamos a dos decimales
+    #Calcula el % de total, crea un array en el q solo se queda con los elementos q df.prueba == 1 y lo divide por el total, redondeo a dos decimales
     Corr_Total = round(((len(df[df.Correct == 1])/ len(df)) * 100), 2) 
     #Calcula el % de acierto para palabras de 2 sílabas, redondeamos a dos decimales
     Corr_two = round(((len(df[(df.Correct == 1) & (df.NSyllables == 2)])/ len(df[df.NSyllables == 2])) * 100), 2) 
@@ -69,7 +69,7 @@ def PorcentajeAciertos (df):
 #Matriz de confusión para VOCALES
 def ConfusionMatrixVoc(df):
     conf_matV = pd.crosstab(df['TargetV'], df['RespV'], rownames=['Target'], colnames=['Response'], margins = True); 
-    #Elimina la fila All  y *(no da información relevante) Vocales
+    #Elimina la fila All y *(no da información relevante) Vocales
     ncmV = conf_matV.drop(["All", "*"], axis = 0);
     #Obtiene la matriz de confusion total - Elimina la columna All y * (no da información relevante) Vocales
     confusion_matrixV = ncmV.drop(["All", "*"], axis = 1); 
@@ -78,9 +78,9 @@ def ConfusionMatrixVoc(df):
 #Matriz de confusión Normalizada para VOCALES
 def NormalConfusionMatrixVoc (df):
     conf_matV = pd.crosstab(df['TargetV'], df['RespV'], rownames=['Target'], colnames=['Response'], margins = True); 
-    #Normalizacion de la matriz de confusión Vocales
+    #Normalizacion de la matriz de confusion Vocales
     ncmV1 = conf_matV/conf_matV.max().astype(np.float64); 
-    #Elimina la fila All  y * (no da información relevante) Vocales
+    #Elimina la fila All y * (no da información relevante) Vocales
     ncmV2 = ncmV1.drop(["All", "*"], axis = 0); 
     #Elimina la columna All y *(no nos da información) Vocales
     ncmV3 = ncmV2.drop(["All", "*"], axis = 1); 
@@ -100,13 +100,13 @@ def ConfusionMatrixCons(df):
 #Matriz de confusión Normalizada para CONSONANTES
 def NormalConfusionMatrixCons(df):
     conf_matC = pd.crosstab(df['TargetC'], df['RespC'], rownames=['Target'], colnames=['Response'], margins = True); 
-    #Normalizacion de matriz de confusión Consonantes
+    #Normalizacion de matriz de confusion Consonantes
     ncmC1 = conf_matC/conf_matC.max().astype(np.float64); 
     #Eliminacion de la fila  All y ** (no da información relevante) Consonantes
     ncmC2 = ncmC1.drop(["All","**" ], axis = 0); 
     #Eliminacion las columnas All, **, gr y zr (no da información relevante) Consonantes
     ncmC3 = ncmC2.drop(["All", "**","gr", "zr"], axis = 1); 
-    #Obtencion Matriz de Confusión Normalizada - Redondeo de los datos a dos decimales en df Consonantes
+    #Obtencion Matriz de Confusion Normalizada - Redondeo de los datos a dos decimales en df Consonantes
     normarlize_confusion_matrixC = ncmC3.round(2) 
     return normarlize_confusion_matrixC
 
@@ -270,7 +270,7 @@ def NormalizeCAproximante(df):
 
 ##### IMPRIMIR MATRICES #####
 
-#Funcion para mprimimor las matrices de confusión normalizadas, utilizando un mapa de calor con diferentes gradaciones de color
+#Funcion para imprimir las matrices de confusión normalizadas, utilizando un mapa de calor con diferentes gradaciones de color
 #Gradaciones de color diferentes y con una escala logarítmica divididas en intervalos
 
 
@@ -287,25 +287,27 @@ def PlotMatOrangeBlue(normalize_confusion_matrix, nombre):
     if len(normalize_confusion_matrix) >= 7: 
         plt.figure(figsize=(15, 10))
         #Mapa de calor, dependiendo la escala de colores que se quiera (escala creada u otra ya existente),
-        #Asignamos la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
+        #se asigna la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
         sn.heatmap(normalize_confusion_matrix, cmap= newcmpOB, annot_kws={"size": 13},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
-        plt.title("Mapa de calor Matriz de Confusion - " + nombre)
+        plt.title("Mapa de calor Matriz de confusion - " + nombre)
         plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
         plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
         plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
-    
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
+        
     else:
         plt.figure(figsize=(8, 4))
         #Mapa de calor, dependiendo la escala de colores que se quiera (escala creada u otra ya existente),
-        #Asignamos la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
+        #se asigna la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
         sn.heatmap(normalize_confusion_matrix, cmap= newcmpOB, annot_kws={"size": 20},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
-        plt.title("Mapa de calor Matriz de Confusion - " + nombre)
+        plt.title("Mapa de calor Matriz de confusion - " + nombre)
         plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
         plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
         plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
-    
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
+        
     return plt.show()
     
 
@@ -318,24 +320,26 @@ def PlotMatViridis(normalize_confusion_matrix, nombre):
     if len(normalize_confusion_matrix) >= 7: 
         plt.figure(figsize=(15, 10))
         #Mapa de calor, dependiendo la escala de colores que se quiera (escala creada u otra ya existente),
-        #Asignamos la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
+        #se asigna la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
         sn.heatmap(normalize_confusion_matrix, cmap= viridis, annot_kws={"size": 13},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
-        plt.title("Mapa de calor Matriz de Confusion - " + nombre)
+        plt.title("Mapa de calor Matriz de confusion - " + nombre)
         plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
         plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
         plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
-    
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
+        
     else:
         plt.figure(figsize=(8, 4))
         #Mapa de calor, dependiendo la escala de colores que se quiera (escala creada u otra ya existente),
-        #Asignamos la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
+        #se asigna la escala a cmap; en este caso, cmap = newcmpOB (escala Orange y Blue)
         sn.heatmap(normalize_confusion_matrix, cmap= viridis, annot_kws={"size": 20},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
-        plt.title("Mapa de calor Matriz de Confusion - " + nombre)
+        plt.title("Mapa de calor Matriz de confusion - " + nombre)
         plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
         plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
         plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
     
     return plt.show()
 
@@ -379,14 +383,14 @@ def errorMedio (VP, FN, FP, VN):
 
 #Definicion del F-score (Valor F) = Precision x Sensibilidad
 def valorF(VP, FN, FP, VN):
-    #Calculo del valor F, redondeo 3 decimales
+    #Calculo del valor-F, redondeo 3 decimales
     resultado_valorF = round(2*(sensibilidad(VP, FN, FP, VN) * precision(VP, FN, FP, VN))/
                                (sensibilidad(VP, FN, FP, VN) + precision(VP, FN, FP, VN)), 3);
     return (resultado_valorF)
 
 #Definicion del ratio de falsos positivos - false positive rate (FPR)
 def falsePositive(VP, FN, FP, VN):
-    #Calculo FPR, redondeo 3 decimales
+    #Calculo FPR, rendondeo 3 decimales
     resultado_FPR = round((FP)/(FP + VN), 3); 
     return (resultado_FPR)
 
@@ -425,7 +429,7 @@ def Matriz2x2 (confusion_matrix):
     falsos_positivos = confusion_matrix.sum(axis=0) - verdaderos_positivos #Definicion de los falsos positivos de la matriz 
     falsos_negativos = confusion_matrix.sum(axis=1) - verdaderos_positivos #Definicion de los falsos negativos de la matriz 
     verdaderos_negativos = (confusion_matrix.to_numpy().sum() - (verdaderos_positivos + falsos_positivos + falsos_negativos)) #Definicion de los verdaderos negativos de la matriz 
-    #Lista con Dataframe de matrices de confusion 2x2 
+    #Lista con Dataframe de matrices de confusion 2x2 p
     Matrices2x2 = [] #Creacion de una lista (de dataframes) en la que se guardan la matriz de confusion de cada letra
     for dato, vp, fp, vn, fn in zip(
             confusion_matrix.columns,
@@ -511,7 +515,7 @@ def FuncionesEstadisticas(confusion_matrix):
         especificidadf = especificidad(VP, FN, FP, VN) #Calculo de la especificidad 
         exactitudf = exactitud(VP, FN, FP, VN) #Calculo de la exactitud
         precisionf = precision(VP, FN, FP, VN) #Calculo de la precision 
-        matthewf = matthew(VP, FN, FP, VN) #Calculo del Coeficiente de Matthews 
+        matthewf = matthew(VP, FN, FP, VN) #Calculo del Coeficiente de Matthew 
         jaccardf = jaccard(VP, FN, FP, VN)#Calculo del Indice de Jaccard  
         parametroDf = parametroD(VP, FN, FP, VN)#Calculo deL Parametro d'
         errorMedf = errorMedio(VP, FN, FP, VN)#Calculo del error medio para las Consonantes
@@ -522,7 +526,7 @@ def FuncionesEstadisticas(confusion_matrix):
         lista_Especificidad.append(especificidadf) #Se rellena la lista de la especificidad  
         lista_Exactitud.append(exactitudf) #Se rellena la lista de la exactitud
         lista_Precision.append(precisionf) #Se rellena la lista de la precision 
-        lista_Matthews.append(matthewf) #Se rellena la lista del coeficiente de Matthews 
+        lista_Matthews.append(matthewf) #Se rellena la lista del coeficiente de Matthew 
         lista_Jaccard.append(jaccardf) #Se rellena la lista del Indice de Jaccard 
         lista_ParametroD.append(parametroDf) #Se rellena la lista del Parámetro d'
         lista_ErrorMedio.append(errorMedf) #Se rellena la lista del error medio 
@@ -543,7 +547,7 @@ def FuncionesEstadisticas(confusion_matrix):
     #Se imprime la tabla (dataframe) con los resultados totales                                       
     print("\n Los resultados estadisticos son: \n \n", Resultado_Estadistico,"\n") 
     
-    #La funcion devuelve el dataframe "Resultado_Estadistico", con los parametros eswtadisticos calculados
+    #La funcion devuelve el dataframe "Resultado_Estadistico", con los parametros estadisticos calculados
     return Resultado_Estadistico
 
 
@@ -575,7 +579,7 @@ def EstatPrecision(matriz):
     print("La Precision es: \n \n", precis)
     return precis
 
-#Error Medio
+#EError Medio
 def EstatError_Medio(matriz):
     errorm = pd.DataFrame(data = FuncionesEstadisticas(matriz).Error_Medio);
     print("El Error Medio es: \n \n", errorm)
@@ -611,4 +615,14 @@ def EstatParamD(matriz):
     print("El Parametro D es: \n \n", parD)
     return parD
 
+
+
+
+
+##### GUARDAR LOS DATAFRAMES RESULTANTES #####
+    
+#Función para guardar los dataframes obtenidos en formato .xlsx
+def dfToExcel(dataframe, nombre):
+    dataframe.to_excel(nombre) 
+    
 

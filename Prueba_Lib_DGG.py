@@ -218,22 +218,32 @@ print("\n Los parametros estadisticos obtenidos para las Consonantes Aproximante
 ##### 6. OBTENCION DE PARAMETROS ESTADISTICOS CONCRETOS #####
 #Se realiza la prueba obteniendo los parametros estadisticos para las Consonantes
 
-Sensibilidad_Consonantes = ld.EstatSensibilidad(Matriz_Confusion_V)
+Sensibilidad_Consonantes = ld.EstatSensibilidad(Matriz_Confusion_C)
 
-Especificidad_Consonantes = ld.EstatEspecificidad(Matriz_Confusion_V)
+Especificidad_Consonantes = ld.EstatEspecificidad(Matriz_Confusion_C)
 
-Exactitud_Consonantes = ld.EstatExactitud(Matriz_Confusion_V)
+Exactitud_Consonantes = ld.EstatExactitud(Matriz_Confusion_C)
 
-Precision_Consonantes  = ld.EstatPrecision(Matriz_Confusion_V)
+Precision_Consonantes  = ld.EstatPrecision(Matriz_Confusion_C)
 
-Error_Medio_Consonantes = ld.EstatError_Medio(Matriz_Confusion_V)
+Error_Medio_Consonantes = ld.EstatError_Medio(Matriz_Confusion_C)
 
-Valor_F_Consonantes = ld.EstatValor_F(Matriz_Confusion_V)
+Valor_F_Consonantes = ld.EstatValor_F(Matriz_Confusion_C)
 
-Ratio_FP_Consonantes = ld.EstatRatio_FP(Matriz_Confusion_V)
+Ratio_FP_Consonantes = ld.EstatRatio_FP(Matriz_Confusion_C)
 
-Coeficiente_Matthews_Consonantes = ld.EstatMatthews(Matriz_Confusion_V)
+Coeficiente_Matthews_Consonantes = ld.EstatMatthews(Matriz_Confusion_C)
 
-Indice_Jaccard_Consonantes = ld.EstatJaccard(Matriz_Confusion_V)
+Indice_Jaccard_Consonantes = ld.EstatJaccard(Matriz_Confusion_C)
 
-Parametro_D_Consonantes = ld.EstatParamD(Matriz_Confusion_V)
+Parametro_D_Consonantes = ld.EstatParamD(Matriz_Confusion_C)
+
+
+ 
+    
+
+##### 7. GUARDAR LOS RESULTADOS DE DATAFRAME #####
+
+#Se guarda el dataframe de las Consonantes en formato .xlsx
+ld.dfToExcel(Normal_Matriz_Confusion_C, "Consonantes_Normalizadas.xlsx")
+
