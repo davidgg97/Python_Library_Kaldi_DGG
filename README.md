@@ -142,7 +142,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
   parametroD(VP, FN, FP, VN)
   ```
   
-  - Funciones para calcular los parámetros estadísticos anteriores, para todas las letras de una matriz de confusión. Tienen como parámetro de entrada la matriz de confusión que se quiera estudiar.
+  - Funciones para calcular los parámetros estadísticos anteriores para todas las letras de una matriz de confusión. Tienen como parámetro de entrada la matriz de confusión que se quiera estudiar.
   
   ```
   EstatSensibilidad(matriz_confusion)
