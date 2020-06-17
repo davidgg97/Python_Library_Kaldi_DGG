@@ -621,7 +621,7 @@ def EstatParamD(matriz):
 
 ##### GUARDAR LOS DATAFRAMES RESULTANTES #####
     
-#Función para guardar los dataframes obtenidos en formato .xlsx
+#Funcion para guardar los dataframes obtenidos en formato .xlsx
 def dfToExcel(dataframe, nombre):
     dataframe.to_excel(nombre) 
     
