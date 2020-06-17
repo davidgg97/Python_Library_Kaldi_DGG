@@ -25,4 +25,28 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
   
   ![alt text](Imagenes_Ejemplo_Resultados_Librería/Matriz_Viridis_Consonantes_salidatxt.png)
 
+- Obtención de una tabla de valores estadísticos para cada una de las consonantes reconocidas por el sistema de RAH:
+  ```
+  Lib_RAH_DGG.FuncionesEstadisticas(Matriz_Confusion_C)
+  ```
+  Se obtiene como resultado la siguiente figura:
+  
+  ![alt text](Imagenes_Ejemplo_Resultados_Librería/Funciones_Estadisticas_Consonantes_salidatxt.png)
+  
+  ***2.	Configuración y uso***
+  
+- Prerrequisitos
+  
+  Para utilizar esta librería, es necesario tener instalado Python 3.
+  
+- Descarga
 
+  Puedes descargar esta librería desde el siguiente enlace:
+  
+  (Lib_RAH_DGG.py)
+  
+- Uso de las diferentes funciones
+
+  Las funciones disponibles con esta librería son:
+
+  -	Función para el cálculo del porcentaje de acierto (sílabas reconocidas) en el RAH. Tiene como parámetro de entrada un     dataframe con los datos que se quieren analizar:
