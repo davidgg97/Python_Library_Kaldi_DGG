@@ -17,7 +17,7 @@ Al instalar la receta ASICA en el software Kaldi y ejecutar el script “result_
 
 Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” son:
 
->1. Obtención de un mapa de una figura para una matriz de confusión de consonantes:
+>1.Obtención de un mapa de una figura para una matriz de confusión de consonantes:
   ```
   Lib_RAH_DGG.PlotMatViridis(Normal_Matriz_Confusion_C, "Consonantes")
   ```
