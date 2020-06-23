@@ -68,7 +68,7 @@ Algunos ejemplos de resultados obtenidos con la librería “Lib_RAH_DGG.py” s
 
   Puedes descargar esta librería desde el siguiente enlace:
   
-  (https://github.com/davidgg97/Python_Statistics_Library_for_Kaldi_RAH_DGG/blob/master/Lib_RAH_DGG.py)
+  (https://github.com/davidgg97/Python_Statistics_Library_for_Kaldi_RAH_DGG)
   
 - Uso de las diferentes funciones
 
