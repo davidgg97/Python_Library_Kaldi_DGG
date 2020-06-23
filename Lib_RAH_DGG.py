@@ -45,7 +45,7 @@ def PorcentajeAciertos(df):
     four_syl = round((len(df[df.NSyllables == 4])/ len(df))*100, 2) 
     
     
-    #Calcula el % de total, crea un array en el q solo se queda con los elementos q df.prueba == 1 y lo divide por el total, redondeo a dos decimales
+    #Calcula el % de total, crea un array en el que solo se queda con los elementos q df.prueba == 1 y lo divide por el total, redondeo a dos decimales
     Corr_Total = round(((len(df[df.Correct == 1])/ len(df)) * 100), 2) 
     #Calcula el % de acierto para palabras de 2 sílabas, redondeamos a dos decimales
     Corr_two = round(((len(df[(df.Correct == 1) & (df.NSyllables == 2)])/ len(df[df.NSyllables == 2])) * 100), 2) 
@@ -292,8 +292,8 @@ def PlotMatOrangeBlue(normalize_confusion_matrix, nombre):
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
         plt.title("Mapa de calor Matriz de confusion - " + nombre)
         plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
-        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
-        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
+        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono mas claro y no tape datos
         plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
         
     else:
@@ -303,10 +303,10 @@ def PlotMatOrangeBlue(normalize_confusion_matrix, nombre):
         sn.heatmap(normalize_confusion_matrix, cmap= newcmpOB, annot_kws={"size": 20},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
         plt.title("Mapa de calor Matriz de confusion - " + nombre)
-        plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
-        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
-        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
-        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
+        plt.tight_layout() #Ajusta la figura (funciona tambien sin este parametro)
+        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecucion
         
     return plt.show()
     
@@ -324,10 +324,10 @@ def PlotMatViridis(normalize_confusion_matrix, nombre):
         sn.heatmap(normalize_confusion_matrix, cmap= viridis, annot_kws={"size": 13},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
         plt.title("Mapa de calor Matriz de confusion - " + nombre)
-        plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
-        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
-        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
-        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
+        plt.tight_layout() #Ajusta la figura (funciona tambien sin este parametro)
+        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecucion
         
     else:
         plt.figure(figsize=(8, 4))
@@ -336,9 +336,9 @@ def PlotMatViridis(normalize_confusion_matrix, nombre):
         sn.heatmap(normalize_confusion_matrix, cmap= viridis, annot_kws={"size": 20},
            norm=colors.LogNorm(vmin=0.01,vmax=1), vmin=0.01, vmax=1, annot=True);
         plt.title("Mapa de calor Matriz de confusion - " + nombre)
-        plt.tight_layout() #Ajusta la figura (funciona también sin este parametro)
-        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono más claro y no tape datos
-        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono más claro y no tape datos
+        plt.tight_layout() #Ajusta la figura (funciona tambien sin este parametro)
+        plt.grid(which='minor', alpha=0.1) #Para hacer el grid de un tono mas claro y no tape datos
+        plt.grid(which='major', alpha=0.2) #Para hacer el grid de un tono mas claro y no tape datos
         plt.savefig(nombre) #Guarda la figura creada en la carpeta donde se encuentre el fichero de ejecución
     
     return plt.show()
@@ -480,7 +480,7 @@ def FuncionesEstadisticas(confusion_matrix):
 
     #Creacion de listas para almacenar los calculos de los datos
     #Creacion de una lista para almacenar los cálculos de la sensibilidad 
-    lista_sensibilidad = [] 
+    lista_Sensibilidad = [] 
     #Creacion de una lista para almacenar los datos de la especificidad de cada una de las letras
     lista_Especificidad = [] 
     #Creacion de una lista para almacenar los datos de la exactitud de cada una de las letras
@@ -522,7 +522,7 @@ def FuncionesEstadisticas(confusion_matrix):
         valorFf = valorF(VP, FN, FP, VN)#Calculo del valor Fpara las Consonantes
         fprf = falsePositive(VP, FN, FP, VN)#Calculo del valor FPR para las Consonantes
     
-        lista_sensibilidad.append(sensibilidadf) #Se rellena la lista de las sensibilidades 
+        lista_Sensibilidad.append(sensibilidadf) #Se rellena la lista de las sensibilidades 
         lista_Especificidad.append(especificidadf) #Se rellena la lista de la especificidad  
         lista_Exactitud.append(exactitudf) #Se rellena la lista de la exactitud
         lista_Precision.append(precisionf) #Se rellena la lista de la precision 
@@ -538,7 +538,7 @@ def FuncionesEstadisticas(confusion_matrix):
     Indices = lista_Letra_Posicion
     
     #Se crea un dataframe con los resultados obtenidos para todos los parametros estadisticos calculados
-    Resultado_Estadistico = pd.DataFrame({"Sensibilidad": lista_sensibilidad, "Especificidad": lista_Especificidad, 
+    Resultado_Estadistico = pd.DataFrame({"Sensibilidad": lista_Sensibilidad, "Especificidad": lista_Especificidad, 
                                           "Exactitud": lista_Exactitud, "Precision": lista_Precision,
                                           "Error_Medio": lista_ErrorMedio, "Valor_F": lista_ValorF ,
                                           "Ratio_FP": lista_FPR, "Coeficiente_Matthews": lista_Matthews,
