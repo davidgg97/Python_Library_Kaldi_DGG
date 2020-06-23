@@ -36,7 +36,7 @@ texto_kaldi.rename(columns={'Number of Syllables': 'NSyllables'}, inplace = True
 
 ##### CALCULO DE EL PORCENTAJE DE ACIERTO SEGUN EL NUMERO DE SILABAS DE LA PALABRA #####
 
-def PorcentajeAciertos (df):
+def PorcentajeAciertos(df):
     #Porcentaje de palabras de 2 sílabas
     two_syl = round((len(df[df.NSyllables == 2])/ len(df))*100, 2)
     #Porcentaje de palabras de 3 sílabas
@@ -76,7 +76,7 @@ def ConfusionMatrixVoc(df):
     return confusion_matrixV
 
 #Matriz de confusión Normalizada para VOCALES
-def NormalConfusionMatrixVoc (df):
+def NormalConfusionMatrixVoc(df):
     conf_matV = pd.crosstab(df['TargetV'], df['RespV'], rownames=['Target'], colnames=['Response'], margins = True); 
     #Normalizacion de la matriz de confusion Vocales
     ncmV1 = conf_matV/conf_matV.max().astype(np.float64); 
@@ -423,7 +423,7 @@ def parametroD(VP, FN, FP, VN):
 ##### TRANSFORMACION  A MATRICES 2X2 #####
 
 #VOCALES
-def Matriz2x2 (confusion_matrix):
+def Matriz2x2(confusion_matrix):
     #Definicion de qué es un verdadero positivo, falso positivo, falso negativo y verdadero negativo 
     verdaderos_positivos = np.diag(confusion_matrix) #Definicion de verdaderos positivos de la matriz 
     falsos_positivos = confusion_matrix.sum(axis=0) - verdaderos_positivos #Definicion de los falsos positivos de la matriz 
